@@ -161,4 +161,78 @@ select * from Clientes
 
 select * from CarrinhoCompra
 
+# MVP DO PROJETO
+
+	Telas Principais (Prioritárias)
+1.	Tela de Login/Autenticação (Cliente)
+Objetivo: Tela inicial para clientes autenticarem-se (se necessário) ou acessarem o sistema diretamente, por meio de login ou cadastro.
+Elementos:
+o	Campos de entrada: E-mail e senha.
+o	Botões: "Entrar", "Cadastrar", "Esqueci a senha".
+o	Links de navegação: "Entrar como convidado" (para clientes sem conta).
+o	Design: Limpo, com o logotipo do restaurante e campos bem visíveis.
+Prioridade: Alta. Esta tela é importante para permitir que o cliente entre no sistema e acesse seu histórico de pedidos e preferências.
+________________________________________
+2.	Tela Principal do Cardápio (Acesso ao Cardápio Digital)
+Objetivo: Exibir o cardápio digital, com fotos, descrições e categorias de pratos e bebidas.
+Elementos:
+o	Categorias de Cardápio: Ex: "Entradas", "Pratos principais", "Sobremesas", "Bebidas", etc.
+o	Filtros de Preferências: Como "Vegano", "Sem glúten", "Leve", "Doce", etc.
+o	Imagens dos itens: Cada prato ou bebida com foto e nome.
+o	Preço e descrição: Resumo do prato/bebida.
+o	Botão de filtro: Para o cliente escolher como deseja ordenar ou filtrar o cardápio.
+Prioridade: Alta. Esta tela é a função central do app e precisa ser intuitiva e funcional. Deve permitir que o cliente navegue facilmente pelas opções.
+________________________________________
+3.	Tela de Sugestões Personalizadas
+Objetivo: Exibir recomendações baseadas nas preferências e histórico do cliente.
+Elementos:
+o	Sugestões de Pratos/Bebidas: Itens que o cliente provavelmente gostará com base nos pedidos anteriores ou preferências.
+o	Ícones de categorias: Para facilitar a visualização.
+o	Botão de "Adicionar ao Pedido": Facilitar a escolha de itens recomendados.
+Prioridade: Alta. A personalização é um dos principais atrativos do app, pois ajuda o cliente a tomar decisões rápidas e agradáveis.
+________________________________________
+4.	Tela de Detalhes do Pedido
+Objetivo: Mostrar todos os itens que o cliente selecionou, com a possibilidade de alterar quantidades ou remover itens.
+Elementos:
+o	Lista de Itens Selecionados: Nome do prato, quantidade, preço.
+o	Resumo do Pedido: Total parcial.
+o	Botões: "Finalizar Pedido", "Alterar Pedido", "Adicionar mais itens".
+o	Informações extras: Se houver opções como "acompanha molho" ou "tamanho", essas opções também devem aparecer.
+Prioridade: Alta. Esta tela é essencial para o cliente revisar o pedido antes de finalizar.
+________________________________________
+5.	Tela de Pagamento
+Objetivo: Facilitar o pagamento diretamente pelo app.
+Elementos:
+o	Resumo do Pedido: Nome dos itens e preço.
+o	Métodos de Pagamento: Cartão de crédito, débito, Pix, etc.
+o	Campos de pagamento: Dados do cartão, código de segurança, etc.
+o	Botão de "Confirmar Pagamento": Para finalizar a compra.
+Prioridade: Alta. O processo de pagamento deve ser simples e seguro para proporcionar uma boa experiência ao cliente.
+________________________________________
+	Telas Secundárias (Para Implementação Futura)
+1.	Tela de Histórico de Pedidos
+Objetivo: Mostrar ao cliente seus pedidos anteriores para facilitar a repetição de compras.
+Elementos:
+o	Lista de Pedidos: Nome do prato/bebida, data, status (ex: "concluído", "em preparo").
+o	Opção de "Repetir Pedido": Para facilitar a compra de itens que o cliente já pediu anteriormente.
+Prioridade: Média. Embora útil, o histórico de pedidos não é essencial para o lançamento inicial, mas seria um bom recurso para engajamento do cliente a longo prazo.
+________________________________________
+2.	Tela de Promoções
+Objetivo: Exibir promoções atuais que podem interessar ao cliente, de acordo com seu comportamento de compra.
+Elementos:
+o	Lista de Promoções Ativas: Como "Compre uma pizza, ganhe uma sobremesa".
+o	Botões para visualizar detalhes da promoção.
+o	Exibição de prazos: Quando a promoção está válida.
+Prioridade: Média. Embora seja um bom recurso para atrair clientes e aumentar as vendas, as promoções podem ser implementadas posteriormente, já que a funcionalidade de recomendação de pratos é mais central.
+________________________________________
+3.	Tela de Configurações de Conta
+Objetivo: Permitir que o cliente gerencie suas informações, como dados de perfil, preferências alimentares e notificações.
+Elementos:
+o	Campos de edição: Nome, e-mail, senha, número de telefone.
+o	Preferências Alimentares: Como "sem lactose", "vegano", etc.
+o	Notificações: Ativar/desativar promoções ou recomendações personalizadas.
+Prioridade: Baixa. Embora seja importante a longo prazo, as configurações de conta podem ser deixadas para uma versão futura do app, após garantir as funcionalidades principais.
+________________________________________
+
+
 
