@@ -1,17 +1,7 @@
-      # DESCRIÇÃO DO PROJETO
-Uma plataforma inovadora que conecta usuários a uma ampla variedade de restaurantes, proporcionando uma experiência gastronômica personalizada e intuitiva. Com uma interface moderna e interativa, o app permite que os clientes escolham refeições de acordo com suas preferências, recebam recomendações inteligentes e aproveitem promoções exclusivas.
-Utilizando inteligência artificial, o app aprende com os hábitos de consumo dos usuários para sugerir pratos, criar combos personalizados e oferecer um modo "Surpresa-me" para quem deseja experimentar algo novo. Além disso, conta com filtros interativos que ajudam a encontrar refeições conforme a ocasião, seja uma comida rápida, uma opção saudável ou um prato para compartilhar.
-3 OBJETIVO DO PROJETO
-     O objetivo deste projeto é desenvolver um aplicativo de delivery inteligente que utiliza inteligência artificial (IA) para proporcionar uma experiência gastronômica altamente personalizada. Mais do que apenas entregar comida, o app funciona como um "chef pessoal", aprendendo com as preferências dos usuários e sugerindo combinações exclusivas com base em fatores como horário, clima e hábitos alimentares.
-         #SOBRE A EQUIPE
-    A equipe é composta por profissionais com habilidades complementares para criar uma solução inovadora:
-
-•	Emival Junior Pinheiro - Ensino Médio Completo - Foco em desenvolvimento de soluções tecnológicas.
-
-•	Lucas de Carvalho - Ensino Médio Completo - Desenvolvimento de habilidades em liderança e gestão de equipe.
-
-•	Samuel Cunha - Ensino Médio Completo - Interesse na exploração de novas tecnologias e ferramentas.
-
+# DESCRIÇÃO DO PROJETO
+O MenuMate é o aplicativo perfeito para quem busca praticidade, rapidez e variedade ao fazer pedidos online. Com uma interface intuitiva e de fácil navegação, o app permite que você encomende alimentos, bebidas, produtos de supermercado, de maneira rápida e segura.
+# OBJETIVO DO PROJETO
+  Facilitar o processo de compra e entrega de produtos e serviços ao usuário, proporcionando uma experiência rápida, prática e segura. Seu foco principal é conectar consumidores a fornecedores locais (restaurantes, lojas, mercados, farmácias, etc.), permitindo que façam pedidos de forma conveniente e recebam suas compras diretamente no local desejado, com a opção de pagamento online e rastreamento em tempo real.
 # FERRAMENTAS A UTILIZAR
 •	SQL Server: Gerenciamento de banco de dados dos clientes, pedidos e catálogos.
 
