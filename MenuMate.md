@@ -234,5 +234,191 @@ o	Notificações: Ativar/desativar promoções ou recomendações personalizadas
 Prioridade: Baixa. Embora seja importante a longo prazo, as configurações de conta podem ser deixadas para uma versão futura do app, após garantir as funcionalidades principais.
 ________________________________________
 
+# EXPLICAÇÃO TÉCNICA 
+
+Na tela de login, uma função foi criada para validar se o usuário e a senha fornecidos são corretos, comparando-os com as informações armazenadas no banco de dados.
+Código da Função:
+java
+Copiar
+public boolean validarLogin(String email, String senha) {
+    boolean isValid = false;
+    Connection con = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+   try {
+        // Es tabelecendo conexão com o banco de dados
+        con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=CardapioDigital", "usuario", "senha");
+            // Query SQL para verificar o usuário e senha
+        String query = "SELECT * FROM Cliente WHERE Email = ? AND Senha = ?";
+        stmt = con.prepareStatement(query);
+        stmt.setString(1, email);
+        stmt.setString(2, senha);
+       
+   // Executa a consulta e armazena o resultado
+        rs = stmt.executeQuery();
+              // Se houver um resultado, significa que as credenciais são válidas
+        if (rs.next()) {        isValid = true;
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (stmt != null) stmt.close();
+            if (con != null) con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+   return isValid;
+}
+Explicação:
+•	Objetivo: Essa função recebe o e-mail e a senha fornecidos pelo cliente e verifica se existe um usuário correspondente no banco de dados.
+•	Fluxo:
+1.	Estabelece uma conexão com o banco de dados usando JDBC.
+2.	Executa uma consulta SQL para verificar se as credenciais fornecidas correspondem a um cliente registrado.
+3.	Se a consulta retornar um resultado, significa que as credenciais são válidas, e a função retorna true. Caso contrário, retorna false.
+•	Uso: Essa função é chamada quando o cliente tenta fazer login no sistema, validando as credenciais antes de permitir o acesso.
+________________________________________
+Na tela principal do cardápio, uma função foi criada para carregar todos os itens do cardápio a partir do banco de dados e exibi-los para o cliente.
+Código da Função:
+java
+Copiar
+public void carregarCardapio() {
+    DefaultListModel<String> modeloLista = new DefaultListModel<>();
+    Connection con = null;
+    Statement stmt = null;
+    ResultSet rs = null;
+
+   try {
+        // Conectando ao banco de dados
+        con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=CardapioDigital", "usuario", "senha");
+        
+   // Query SQL para obter todos os itens do cardápio
+        String query = "SELECT Nome_Prato_Bebida, Categoria, Preco FROM Cardapio";
+        stmt = con.createStatement();
+        rs = stmt.executeQuery(query);
+            // Itera sobre os resultados e adiciona na lista de itens
+        while (rs.next()) {
+            String nomeItem = rs.getString("Nome_Prato_Bebida");
+            String categoria = rs.getString("Categoria");
+            double preco = rs.getDouble("Preco");
+            String itemDetalhado = nomeItem + " - " + categoria + " - R$ " + preco;
+            modeloLista.addElement(itemDetalhado);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (stmt != null) stmt.close();
+            if (con != null) con.close();
+       } catch (SQLException e) {
+            e.printStackTrace();    }
+  }    // Atualiza a interface com os itens do cardápio
+    listaCardapio.setModel(modeloLista);
+}
+Explicação:
+•	Objetivo: Carregar todos os itens do cardápio e exibi-los em uma lista no aplicativo.
+•	Fluxo:
+1.	A função conecta ao banco de dados e executa uma consulta SQL para buscar todos os itens do cardápio.
+2.	Para cada item, é criada uma string com o nome, categoria e preço, que é adicionada ao modelo de lista.
+3.	O modelo de lista é então vinculado a um componente gráfico (ex: JList) que exibe os itens na interface do usuário.
+•	Uso: A função é chamada quando a tela principal do cardápio é exibida, garantindo que os itens sejam carregados dinamicamente.
+________________________________________
+   Essa função é responsável por gerar sugestões personalizadas para o cliente com base no histórico de pedidos e nas preferências alimentares.
+Código da Função:
+java
+Copiar
+public void gerarSugestoes(String idCliente) {
+    DefaultListModel<String> modeloLista = new DefaultListModel<>();
+    Connection con = null;
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+
+  try {
+        // Conexão com o banco de dados
+        con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=CardapioDigital", "usuario", "senha");
+              // Consulta SQL para obter recomendações baseadas nas preferências do cliente
+        String query = "SELECT Nome_Prato_Bebida, Preco FROM Cardapio WHERE Categoria IN (SELECT Preferencias_Alimentares FROM Cliente_Preferencias WHERE ID_Cliente = ?)";
+        stmt = con.prepareStatement(query);
+        stmt.setString(1, idCliente);
+            rs = stmt.executeQuery();
+            // Adiciona as sugestões à lista
+        while (rs.next()) {
+            String nomeItem = rs.getString("Nome_Prato_Bebida");
+            double preco = rs.getDouble("Preco");
+            String itemDetalhado = nomeItem + " - R$ " + preco;
+            modeloLista.addElement(itemDetalhado);
+        }
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        try {
+            if (rs != null) rs.close();
+            if (stmt != null) stmt.close();
+            if (con != null) con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+   // Atualiza a interface com as sugestões personalizadas
+   listaSugestoes.setModel(modeloLista);
+}
+Explicação:
+•	Objetivo: Gerar sugestões personalizadas para o cliente com base nas suas preferências alimentares.
+•	Fluxo:
+1.	A função consulta o banco de dados para verificar as preferências alimentares do cliente.
+2.	Com base nas preferências, o sistema seleciona os itens do cardápio que se encaixam nessas categorias.
+3.	As sugestões são adicionadas a uma lista que é exibida na interface do usuário.
+•	Uso: A função é chamada quando o cliente acessa a tela de sugestões personalizadas.
+________________________________________
+	4. Tela de Detalhes do Pedido
+	Função para Adicionar Itens ao Pedido
+Essa função permite que o cliente adicione itens ao pedido, incluindo o cálculo do total parcial do pedido.
+Código da Função:
+java
+Copiar
+public void adicionarItemAoPedido(int idPedido, int idPratoBebida, int quantidade) {
+    Connection con = null;
+    PreparedStatement stmt = null;
+
+   try {
+        // Conexão com o banco de dados
+        con = DriverManager.getConnection("jdbc:sqlserver://localhost;databaseName=CardapioDigital", "usuario", "senha");
+            // Adiciona o item ao pedido
+        String query = "INSERT INTO Itens_Pedido (ID_Pedido, ID_Prato_Bebida, Quantidade) VALUES (?, ?, ?)";
+      stmt = con.prepareStatement(query);
+        stmt.setInt(1, idPedido);
+        stmt.setInt(2, idPratoBebida);
+        stmt.setInt(3, quantidade);
+        
+  stmt.executeUpdate();
+        
+   // Atualiza o total do pedido
+        atualizarTotalPedido(idPedido);
+    } catch (SQLException e) {
+        e.printStackTrace();
+    } finally {
+        try {
+            if (stmt != null) stmt.close();
+            if (con != null) con.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+Explicação:
+•	Objetivo: Adicionar itens ao pedido com a quantidade selecionada e atualizar o total do pedido.
+•	Fluxo:
+1.	A função recebe o ID do pedido, o ID do prato/bebida e a quantidade selecionada.
+2.	Executa uma inserção na tabela Itens_Pedido do banco de dados, associando o item ao pedido.
+3.	Após a adição do item, a função chama uma outra função (atualizarTotalPedido) para recalcular o valor total do pedido.
+•	Uso: Essa função é chamada quando o cliente seleciona um item para adicionar ao seu pedido na tela de detalhes do pedido.
+
+
 
 
