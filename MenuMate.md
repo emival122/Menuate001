@@ -56,7 +56,7 @@ o	Personalização das notificações.
 ![Imagem do Circuito](logico.png)
 
 
-O diagrama representa um banco de dados para um sistema de pedidos em restaurantes. Ele contém as entidades Cliente, Restaurante, MenuMate e Sistema de Pagamento, conectadas por relacionamentos.
+  O diagrama representa um banco de dados para um sistema de pedidos em restaurantes. Ele contém as entidades Cliente, Restaurante, MenuMate e Sistema de Pagamento, conectadas por relacionamentos.
 •	Cliente armazena informações do usuário, como nome, e-mail e senha.
 •	Restaurante possui dados sobre comidas e bebidas disponíveis.
 •	MenuMate gerencia promoções, sugestões e o cardápio.
