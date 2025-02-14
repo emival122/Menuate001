@@ -44,4 +44,10 @@ o	Edição de informações pessoais.
 o	Gerenciamento de preferências de compra.
 o	Personalização das notificações.
 
-![Imagem do Circuito](Caso de uso.png)
+![Imagem do Circuito](Casodeuso.png)
+    O diagrama representa um caso de uso do sistema MenuMate, mostrando as interações dos usuários com suas funcionalidades.
+•	O Login permite acesso ao sistema, podendo incluir o Registro.
+•	A função Visualizar pode ser estendida para Filtrar informações.
+•	Gerenciar pedidos inclui ações como Finalizar pedido, que por sua vez pode estender o Pagamento.
+•	O sistema também permite visualizar o Histórico de Pedidos e acessar Promoções.
+
