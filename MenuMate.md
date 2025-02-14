@@ -43,3 +43,5 @@ o	Notificações sobre promoções em fornecedores favoritos.
 o	Edição de informações pessoais.
 o	Gerenciamento de preferências de compra.
 o	Personalização das notificações.
+
+![Imagem do Circuito](Caso de uso.png)
