@@ -53,7 +53,7 @@ o	Personalização das notificações.
 •	Gerenciar pedidos inclui ações como Finalizar pedido, que por sua vez pode estender o Pagamento.
 •	O sistema também permite visualizar o Histórico de Pedidos e acessar Promoções.
 
-![Imagem do Circuito](Lógico.png)
+![Imagem do Circuito](logico.png)
 
 
 O diagrama representa um banco de dados para um sistema de pedidos em restaurantes. Ele contém as entidades Cliente, Restaurante, MenuMate e Sistema de Pagamento, conectadas por relacionamentos.
