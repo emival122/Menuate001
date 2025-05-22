@@ -74,7 +74,7 @@ Calcular SubTotal: O sistema calcula automaticamente o valor parcial do pedido c
 
 Finalizar Compra: Conclui o processo de compra, garantindo o encaminhamento correto do pedido.
 
-![Imagem do Circuito](logico.png)
+![Imagem do Circuito](Logico.png)
 
 
 O diagrama lógico apresentado organiza a estrutura do banco de dados do sistema MenuMate, mostrando as relações entre suas tabelas principais.
